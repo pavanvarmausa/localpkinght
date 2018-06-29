@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1">
+		<title>Homepage</title>
+		<link rel="icon" href="favicon.png" type="image/png">
+		<link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
+		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+		<link href="css/responsive.css" rel="stylesheet" type="text/css">
+		<link href="css/animate.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/jquery-scrolltofixed.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.isotope.js"></script>
+		<script type="text/javascript" src="js/wow.js"></script>
+		<script type="text/javascript" src="js/classie.js"></script>
+		<script type="text/javascript" src="js/pwnapi.js"></script>
+		<script src="contactform/contactform.js"></script>
+	</head>
+	<body>
+		<header class="header" id="header">
+			<!--header-start-->
+			<a href="http://35.225.234.222:8080/pwm/private/login" role="button" class="link animated fadeInUp delay-1s servicelink" style="float:right;margin-top: -260px;margin-right: 20px">Login</a>
+			<div class="container">
+			 <figure class="logo animated fadeInDown delay-07s">
+					<a href="#"><img src="img/logo.png" alt=""></a>
+				 </figure> 
+				<h1 class="animated fadeInDown delay-07s">Password Knight</h1>
+				<ul class="we-create animated fadeInUp delay-1s">
+					<li>Ensuring you don't authenticate with credentials that have been exposed on the Dark Web</li>
+				</ul>
+				<a class="link animated fadeInUp delay-1s servicelink" href="#service">Get Started</a>
+			</div> 
+			<ul class="we-create animated fadeInUp delay-1s">
+				<li>Check if you have an account that has been compromised in a data breach</li>
+			</ul>
+			<div id="searchContainer" class="secondaryHeader">
+				<div class="container" id="searchContainer">
+					<form id="searchForm" method="post" novalidate="novalidate">
+						<div class="input-group">
+							<input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of &#39;255&#39;." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of &#39;3&#39;." data-val-minlength-min="3" id="Account" maxlength="255" name="Account" placeholder="email / username" spellcheck="false" type="email" value="" />
+							<span class="input-group-btn">
+								<center>
+									<a href="javascript:void(0)" class="btn btn-primary btn-lg active" role="button" id="searchPwnage">Breach?</a>
+								</center>
+							</span>
+						</div>
+						<div class="progress progress-striped active" style="display:none;" id="loading">
+							<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div id="invalidAccount" class="pwnedSearchResult panel-collapse  collapse ">
+				<div class="container">
+					<div class="row pwnResultBanner">
+						<h2 class="text-danger">Oh No!! &mdash; You're credentials have been compromised!</h2>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+							<h3 class="text-white text-left" id="disclaimerHeading">Breaches you were compromised in</h3>
+							<p class="text-left text-white" id="disclaimerContent">A "breach" is an incident where a site's data has been illegally accessed by hackers and then realased publicly. Review the types of data that were compromised (email address, passwords, credit cards etc.) and take appropriate action, such as changing passwords.</p>
+						</div>
+					</div>
+					<div id="pwnedContent" class="container"></div>
+				</div>
+			</div>
+			<div id="noPwnage" class="pwnedSearchResult panel-collapse  collapse">
+				<div class="container">
+					<div class="row pwnResultBanner">
+						<div class="pwnTitle">
+							<h2 style="color: red;">Good news &mdash; no compromise found!</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--header-end-->
+		<nav class="main-nav-outer" id="test">
+		<!--main-nav-start-->
+			<div class="container">
+				<ul class="main-nav">
+					<li><a href="#header">Home</a></li>
+					<li><a href="#service">Services</a></li>
+					<!-- <li><a href="#Portfolio">Portfolio</a></li> -->
+					<li class="small-logo"><a href="#header"><img src="img/small-logo.png" alt=""></a></li>
+					<li><a href="#attack">Attack</a></li>
+					<!-- <li><a href="#team">Team</a></li> -->
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+				<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+			</div>
+		</nav>
+		<!--main-nav-end-->
+		<section class="main-section" id="service">
+			<!--main-section-start-->
+			<div class="container">
+				<h2>Services</h2>
+				<h6>It’s simple. Don’t authenticate credentials that have been exposed on the Dark Web. </h6>	
+				<div class="row">
+					<div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
+						<div class="service-list">
+							<div class="service-list-col1">
+								<i class="fa-paw"></i>
+							</div>
+							<div class="service-list-col2">
+								<h3>username &amp; password combo</h3>
+								<p>Password Knight helps you prevent attacks from compromised credentials in real time by checking each login against billions of previously exposed username and password combinations that would otherwise be valid in your environment.</p>
+							</div>
+						</div>
+						<div class="service-list">
+							<div class="service-list-col1">
+								<i class="fa-gear"></i>
+							</div>
+							<div class="service-list-col2">
+								<h3>Active Directory Plug-in</h3>
+								<p>Integrate with your Directory Services. Cybercriminals rely on the fact that most people reuse the same login credentials on multiple sites. Block them from using stolen credentials for account takeover attacks and credential stuffing.</p>
+							</div>
+						</div>
+						<div class="service-list">
+							<div class="service-list-col1">
+								<i class="fa-apple"></i>
+							</div>
+							<!-- <div class="service-list-col2">
+								<h3>mobile & web</h3>
+								<p>Integration with Web services. Password Knight checks every login to identify and block access using known compromised credentials, an approach previously prohibitive to all but the largest organizations.</p>
+							</div> -->
+						</div>
+						<div class="service-list">
+							<div class="service-list-col1">
+								<i class="fa-medkit"></i>
+							</div>
+							<div class="service-list-col2">
+								<h3>24/7 Support</h3>
+								<p>Best in class support</p>
+							</div>
+						</div>
+					</div>
+					<figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
+						<img src="img/imacCOPY.png" alt="">
+					</figure>
+				</div>
+			</div>
+		</section>
+		<!--main-section-end-->
+		<section class="main-section alabaster" id="attack">
+			<!--main-section alabaster-start-->
+			<div class="container">
+				<div class="row">
+					<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
+						<img src="img/iphone.png" alt="">
+					</figure>
+					<div class="col-lg-7 col-sm-8 featured-work">
+						<h2>Block Attacks</h2>
+						<P class="padding-b">Billions of compromised user credentials are circulated on the public Internet and Dark Web. Unfortunately, because most people reuse their passwords across sites, cybercriminals can obtain username and password combinations from previous data breaches that will be valid in your environment. Password Knight provides a simple way to solve this problem using the same approach applied by the leading technology companies.</P>
+						<div class="featured-box">
+							<div class="featured-box-col1 wow fadeInRight delay-02s">
+								<i class="fa-magic"></i>
+							</div>
+							<div class="featured-box-col2 wow fadeInRight delay-02s">
+								<h3>Real Time</h3>
+								<p>Automatically control logins from compromised credentials in real-time. </p>
+							</div>
+						</div>
+						<div class="featured-box">
+							<div class="featured-box-col1 wow fadeInRight delay-04s">
+								<i class="fa-gift"></i>
+							</div>
+							<div class="featured-box-col2 wow fadeInRight delay-04s">
+								<h3>Compromise Database</h3>
+								<p>Check username & password combinations against our database. </p>
+							</div>
+						</div>
+						<div class="featured-box">
+							<div class="featured-box-col1 wow fadeInRight delay-06s">
+								<i class="fa-dashboard"></i>
+							</div>
+							<div class="featured-box-col2 wow fadeInRight delay-06s">
+								<h3>Secure Passwords</h3>
+								<p>Redirect users to reset a secure password. </p>
+							</div>
+						</div>
+						<a class="Learn-More" href="#">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- main-section alabaster-end -->
+		
+		<!-- <section class="main-section paddind" id="Portfolio"> -->
+			<!--main-section-start-->
+			<!-- <div class="container">
+				<h2>Portfolio</h2>
+				<h6>Fresh portfolio of designs that will keep you wanting more.</h6>
+				<div class="portfolioFilter">
+					<ul class="Portfolio-nav wow fadeIn delay-02s">
+						<li><a href="#" data-filter="*" class="current">All</a></li>
+						<li><a href="#" data-filter=".branding">Branding</a></li>
+						<li><a href="#" data-filter=".webdesign">Web design</a></li>
+						<li><a href="#" data-filter=".printdesign">Print design</a></li>
+						<li><a href="#" data-filter=".photography">Photography</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="portfolioContainer wow fadeInUp delay-04s">
+				<div class=" Portfolio-box printdesign">
+					<a href="#"><img src="img/Portfolio-pic1.jpg" alt=""></a>
+					<h3>Foto Album</h3>
+					<p>Print Design</p>
+				</div>
+				<div class="Portfolio-box webdesign">
+					<a href="#"><img src="img/Portfolio-pic2.jpg" alt=""></a>
+					<h3>Luca Theme</h3>
+					<p>Web Design</p>
+				</div>
+				<div class=" Portfolio-box branding">
+					<a href="#"><img src="img/Portfolio-pic3.jpg" alt=""></a>
+					<h3>Uni Sans</h3>
+					<p>Branding</p>
+				</div>
+				<div class=" Portfolio-box photography">
+					<a href="#"><img src="img/Portfolio-pic4.jpg" alt=""></a>
+					<h3>Vinyl Record</h3>
+					<p>Photography</p>
+				</div>
+				<div class=" Portfolio-box branding">
+					<a href="#"><img src="img/Portfolio-pic5.jpg" alt=""></a>
+					<h3>Hipster</h3>
+					<p>Branding</p>
+				</div>
+				<div class=" Portfolio-box photography">
+					<a href="#"><img src="img/Portfolio-pic6.jpg" alt=""></a>
+					<h3>Windmills</h3>
+					<p>Photography</p>
+				</div>
+			</div>
+		</section> -->
+		<!--main-section-end-->
+		<section class="main-section client-part" id="client">
+			<!--main-section client-part-start-->
+			<div class="container">
+				<b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
+				<div class="row">
+					<div class="col-lg-12">
+						<p class="client-part-haead wow fadeInDown delay-05">It was a pleasure to work with the guys at Password Knight.</p>
+					</div>
+				</div>
+				<ul class="client wow fadeIn delay-05s">
+					<li><a href="#">
+	            	<img src="img/client-pic1.jpg" alt="">
+	                <h3>Erik Akopiantz</h3>
+	                <span>Thoma Bravo</span>
+	            </a></li>
+				</ul>
+			</div>
+		</section>
+		<!--main-section client-part-end-->
+		<div class="c-logo-part">
+			<!--c-logo-part-start-->
+			<div class="container">
+				<ul>
+					<li><a href="#"><img src="img/c-liogo1.png" alt=""></a></li>
+					<li><a href="#"><img src="img/c-liogo2.png" alt=""></a></li>
+					<li><a href="#"><img src="img/c-liogo3.png" alt=""></a></li>
+					<li><a href="#"><img src="img/c-liogo4.png" alt=""></a></li>
+					<li><a href="#"><img src="img/c-liogo5.png" alt=""></a></li>
+				</ul>
+			</div>
+		</div>
+		<!--c-logo-part-end-->
+		<section class="main-section team" id="team">
+			<!--main-section team-start-->
+			<div class="container">
+				<h2>team</h2>
+				<h6>Take a closer look into our amazing team. We won’t bite.</h6>
+				<div class="team-leader-block clearfix">
+					<div class="team-leader-box">
+						<div class="team-leader wow fadeInDown delay-03s">
+							<div class="team-leader-shadow"><a href="#"></a></div>
+							<img src="img/team-leader-pic1.jpg" alt="">
+							<ul>
+								<li><a href="#" class="fa-twitter"></a></li>
+								<li><a href="#" class="fa-facebook"></a></li>
+								<li><a href="#" class="fa-pinterest"></a></li>
+								<li><a href="#" class="fa-google-plus"></a></li>
+							</ul>
+						</div>
+						<h3 class="wow fadeInDown delay-03s">Walter White</h3>
+						<span class="wow fadeInDown delay-03s">Software Developer</span>
+						<p class="wow fadeInDown delay-03s"><!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat. --></p>
+					</div>
+					<div class="team-leader-box">
+						<div class="team-leader  wow fadeInDown delay-06s">
+							<div class="team-leader-shadow"><a href="#"></a></div>
+							<img src="img/team-leader-pic2.jpg" alt="">
+							<ul>
+								<li><a href="#" class="fa-twitter"></a></li>
+								<li><a href="#" class="fa-facebook"></a></li>
+								<li><a href="#" class="fa-pinterest"></a></li>
+								<li><a href="#" class="fa-google-plus"></a></li>
+							</ul>
+						</div>
+						<h3 class="wow fadeInDown delay-06s">Jesse Calhan</h3>
+						<span class="wow fadeInDown delay-06s">Software Developer</span>
+						<!-- <p class="wow fadeInDown delay-06s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat.</p> -->
+					</div>
+					<div class="team-leader-box">
+						<div class="team-leader wow fadeInDown delay-09s">
+							<div class="team-leader-shadow"><a href="#"></a></div>
+							<img src="img/team-leader-pic3.jpg" alt="">
+							<ul>
+								<li><a href="#" class="fa-twitter"></a></li>
+								<li><a href="#" class="fa-facebook"></a></li>
+								<li><a href="#" class="fa-pinterest"></a></li>
+								<li><a href="#" class="fa-google-plus"></a></li>
+							</ul>
+						</div>
+						<h3 class="wow fadeInDown delay-09s">Skyler Smith</h3>
+						<span class="wow fadeInDown delay-09s">Software Developer</span>
+						<p class="wow fadeInDown delay-09s"><!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus. Dolor sit amet, consectetur adipiscing elit proin consequat. --></p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--main-section team-end-->
+		<section class="business-talking">
+			<!--business-talking-start-->
+			<div class="container">
+				<h2>Let’s Talk Business.</h2>
+			</div>
+		</section>
+		<!--business-talking-end-->
+		<div class="container">
+			<section class="main-section contact" id="contact">
+
+				<div class="row">
+					<div class="col-lg-6 col-sm-7 wow fadeInLeft">
+						<div class="contact-info-box address clearfix">
+							<h3><i class=" icon-map-marker"></i>Address:</h3>
+							<span> 5001 Spring Valley Rd, Suite 1050W<br>Dallas, TX, 75244.</span>
+						</div>
+						<div class="contact-info-box phone clearfix">
+							<h3><i class="fa-phone"></i>Phone:</h3>
+							<span>1-855-PARANET</span>
+						</div>
+						<div class="contact-info-box email clearfix">
+							<h3><i class="fa-pencil"></i>email:</h3>
+							<span>INFO@PARANET.COM</span>
+						</div>
+						<div class="contact-info-box hours clearfix">
+							<h3><i class="fa-clock-o"></i>Hours:</h3>
+							<span><strong>Monday - Friday:</strong> 8am - 6pm<br>Saturday - Sunday:</strong> On Call Support.</span>
+						</div>
+						<ul class="social-link">
+							<li class="twitter"><a href="#"><i class="fa-twitter"></i></a></li>
+							<li class="facebook"><a href="#"><i class="fa-facebook"></i></a></li>
+							<li class="pinterest"><a href="#"><i class="fa-pinterest"></i></a></li>
+							<li class="gplus"><a href="#"><i class="fa-google-plus"></i></a></li>
+							<li class="dribbble"><a href="#"><i class="fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+						<div class="form">
+
+							<div id="sendmessage">Your message has been sent. Thank you!</div>
+							<div id="errormessage"></div>
+							<form action="" method="post" role="form" class="contactForm">
+								<div class="form-group">
+									<input type="text" name="name" class="form-control input-text" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+									<div class="validation"></div>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control input-text" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+									<div class="validation"></div>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control input-text" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+									<div class="validation"></div>
+								</div>
+								<div class="form-group">
+									<textarea class="form-control input-text text-area" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+									<div class="validation"></div>
+								</div>
+
+								<div class="text-center"><button type="submit" class="input-btn">Send Message</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer class="footer">
+			<div class="container" style="height:100px;">
+				<div class="footer-logo"><a href="#"><img src="img/footer-logo.png" alt=""></a></div>
+				<span class="copyright">&copy; Password Knight. All Rights Reserved</span>
+			</div>
+		</footer>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$('#test').scrollToFixed();
+				$('.res-nav_click').click(function() {
+					$('.main-nav').slideToggle();
+					return false
+				});
+			});
+		</script>
+		<script>
+			wow = new WOW({
+				animateClass: 'animated',
+				offset: 100
+			});
+			wow.init();
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$('.main-nav li a, .servicelink').bind('click', function(event) {
+					var $anchor = $(this);
+					$('html, body').stop().animate({
+						scrollTop: $($anchor.attr('href')).offset().top - 102
+					}, 1500, 'easeInOutExpo');
+					/*
+					if you don't want to use the easing effects:
+					$('html, body').stop().animate({
+						scrollTop: $($anchor.attr('href')).offset().top
+					}, 1000);
+					*/
+					if ($(window).width() < 768) {
+						$('.main-nav').hide();
+					}
+					event.preventDefault();
+				});
+			})
+		</script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				var $container = $('.portfolioContainer'),
+					$body = $('body'),
+					colW = 375,
+					columns = null;
+				$container.isotope({
+					// disable window resizing
+					resizable: true,
+					masonry: {
+						columnWidth: colW
+					}
+				});
+				$(window).smartresize(function() {
+					// check if columns has changed
+					var currentColumns = Math.floor(($body.width() - 30) / colW);
+					if (currentColumns !== columns) {
+						// set new column count
+						columns = currentColumns;
+						// apply width to container manually, then trigger relayout
+						$container.width(columns * colW)
+							.isotope('reLayout');
+					}
+				}).smartresize(); // trigger resize to set container width
+				$('.portfolioFilter a').click(function() {
+					$('.portfolioFilter .current').removeClass('current');
+					$(this).addClass('current');
+					var selector = $(this).attr('data-filter');
+					$container.isotope({
+						filter: selector,
+					});
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>
