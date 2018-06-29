@@ -5,7 +5,8 @@ function init() {
 function registerEventHandlers() {
   $(document)
       .on("click", "#searchPwnage", handleSearchFormSubmit)
-      .on("submit", "#searchForm", handleDefaultFormBehavior);
+      .on("submit", "#searchForm", handleDefaultFormBehavior)
+      .on("click", "#header_nav .main-nav a", handleMenuItemsClick);
 }
 
 function handleDefaultFormBehavior(e) {
@@ -15,9 +16,52 @@ function handleDefaultFormBehavior(e) {
 
 function handleSearchFormSubmit(e) {
   
-  var $loadingElement = $("#loading"),
-      searchText = $("#Account").val();
-  
+  var $loadingElement = $("#loading");
+  var selectedMenuItem = $("#header_nav a.selected-link").attr("data-type");
+  var searchText = "";
+
+  if ( selectedMenuItem == "domains") {
+    searchText = $("#domains-search").val();
+  } else if ( selectedMenuItem == "passwords" ) {
+    searchText = $("#password-search").val();
+    validatePassword($loadingElement, searchText);
+  } else {
+    searchText = $("#email-search").val();
+    validateEmailAddress($loadingElement, searchText);
+  }
+}
+
+function validatePassword($loadingElement, searchText) {
+  $loadingElement.show();
+  $("#noPwnage_passwords, #invalidPasswords").hide();
+
+  if(!searchText) {
+    alert("Enter a Valid Value");
+    $loadingElement.hide();
+    return;
+  }
+
+  $.ajax({
+    method: "GET",
+    url: "http://passwordknightrest.azurewebsites.net/api/passwords/" + searchText
+  })
+  .done(function( data ) {
+      $loadingElement.hide();
+      console.log(data);
+      if(data == "Exists") {
+        $("#invalidPasswords").show();
+      } else {
+        $("#noPwnage_passwords").show();
+      }
+  })
+  .fail(function(error){
+    $loadingElement.hide();
+    $("#noPwnage_passwords").show();
+    return;
+  });
+}
+
+function validateEmailAddress($loadingElement, searchText) {
   $loadingElement.show();
   $("#noPwnage, #invalidAccount").hide();
 
@@ -47,6 +91,25 @@ function handleSearchFormSubmit(e) {
     $("#noPwnage").show();
     return;
   });
+}
+
+function handleMenuItemsClick(e) {
+  e.preventDefault();
+  var $el = $(this);
+  var eleType = $el.attr("data-type");
+
+  $(".search-results-container, #searchContainer .form-control").removeClass("show").addClass("hide");
+  $("#header_nav a").removeClass("selected-link");
+
+  $el.addClass("selected-link");
+
+  if ( eleType == "domains") {
+    $("#domains_serach_results_container, #searchContainer #domains-search").removeClass("hide").addClass("show");
+  } else if ( eleType == "passwords" ) {
+    $("#passwords_serach_results_container, #searchContainer #password-search").removeClass("hide").addClass("show");
+  } else {
+    $("#emails_serach_results_container, #searchContainer #email-search").removeClass("hide").addClass("show");
+  }
 }
 
 function renderPwnedContent(data) {

@@ -26,7 +26,18 @@
 	<body>
 		<header class="header" id="header">
 			<!--header-start-->
-			<a href="http://35.225.234.222:8080/pwm/private/login" role="button" class="link animated fadeInUp delay-1s servicelink" style="float:right;margin-top: -260px;margin-right: 20px">Login</a>
+			<nav class="main-nav-outer" id="header_nav">
+			<!--main-nav-start-->
+				<div class="container">
+					<ul class="main-nav">
+						<li><a href="javascript:void(0)" data-type="domains">Domains</a></li>
+						<li><a href="javascript:void(0)" data-type="passwords">Passwords</a></li>
+						<li><a href="javascript:void(0)" data-type="emails" class="selected-link">Emails</a></li>
+					</ul>
+					<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+				</div>
+				<a href="http://35.225.234.222:8080/pwm/private/login" role="button" class="link animated fadeInUp delay-1s servicelink" id="login_btn">Login</a>
+			</nav>
 			<div class="container">
 			 <figure class="logo animated fadeInDown delay-07s">
 					<a href="#"><img src="img/logo.png" alt=""></a>
@@ -44,7 +55,9 @@
 				<div class="container" id="searchContainer">
 					<form id="searchForm" method="post" novalidate="novalidate">
 						<div class="input-group">
-							<input autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of &#39;255&#39;." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of &#39;3&#39;." data-val-minlength-min="3" id="Account" maxlength="255" name="Account" placeholder="email / username" spellcheck="false" type="email" value="" />
+							<input id="email-search" autocapitalize="off" autocorrect="off" class="form-control" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of &#39;255&#39;." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of &#39;3&#39;." data-val-minlength-min="3" maxlength="255" placeholder="email / username" spellcheck="false" type="email" value="" />
+							<input id="password-search" autocapitalize="off" autocorrect="off" class="form-control hide" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of &#39;255&#39;." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of &#39;3&#39;." data-val-minlength-min="3" maxlength="255" placeholder="passwords" spellcheck="false" type="password" value="" />
+							<input id="domains-search" autocapitalize="off" autocorrect="off" class="form-control hide" data-val="true" data-val-maxlength="The field Account must be a string or array type with a maximum length of &#39;255&#39;." data-val-maxlength-max="255" data-val-minlength="The field Account must be a string or array type with a minimum length of &#39;3&#39;." data-val-minlength-min="3" maxlength="255" placeholder="domain" spellcheck="false" type="text" value="" />
 							<span class="input-group-btn">
 								<center>
 									<a href="javascript:void(0)" class="btn btn-primary btn-lg active" role="button" id="searchPwnage">Breach?</a>
@@ -58,27 +71,90 @@
 					</form>
 				</div>
 			</div>
-			<div id="invalidAccount" class="pwnedSearchResult panel-collapse  collapse ">
-				<div class="container">
-					<div class="row pwnResultBanner">
-						<h2 class="text-danger">Oh No!! &mdash; You're credentials have been compromised!</h2>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-							<h3 class="text-white text-left" id="disclaimerHeading">Breaches you were compromised in</h3>
-							<p class="text-left text-white" id="disclaimerContent">A "breach" is an incident where a site's data has been illegally accessed by hackers and then realased publicly. Review the types of data that were compromised (email address, passwords, credit cards etc.) and take appropriate action, such as changing passwords.</p>
+			<div class="search-results-container" id="emails_serach_results_container">
+				<div id="invalidAccount" class="pwnedSearchResult panel-collapse  collapse ">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<h2 class="text-danger">Oh No!! &mdash; You're credentials have been compromised!</h2>
 						</div>
 					</div>
-					<div id="pwnedContent" class="container"></div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<h3 class="text-white text-left" id="disclaimerHeading">Breaches you were compromised in</h3>
+								<p class="text-left text-white" id="disclaimerContent">A "breach" is an incident where a site's data has been illegally accessed by hackers and then realased publicly. Review the types of data that were compromised (email address, passwords, credit cards etc.) and take appropriate action, such as changing passwords.</p>
+							</div>
+						</div>
+						<div id="pwnedContent" class="container"></div>
+					</div>
+				</div>
+				<div id="noPwnage" class="pwnedSearchResult panel-collapse  collapse">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<div class="pwnTitle">
+								<h2 style="color: red;">Good news &mdash; no compromise found!</h2>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div id="noPwnage" class="pwnedSearchResult panel-collapse  collapse">
-				<div class="container">
-					<div class="row pwnResultBanner">
-						<div class="pwnTitle">
-							<h2 style="color: red;">Good news &mdash; no compromise found!</h2>
+			<div class="search-results-container hide" id="passwords_serach_results_container" style="margin-top:20px;">
+				<div id="invalidPasswords" class="pwnedSearchResult panel-collapse  collapse ">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<h2 class="text-danger">Oh no &mdash; pwned!</h2>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<p class="text-center text-white" id="disclaimerContent2">This password has previously appeared in a data breach and should never be used. If you've ever used it anywhere before, change it!</p>
+							</div>
+						</div>
+						<div id="pwnedContent_passwords" class="container"></div>
+					</div>
+				</div>
+				<div id="noPwnage_passwords" class="pwnedSearchResult panel-collapse  collapse">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<div class="pwnTitle">
+								<h2 style="color: red;">Good news &mdash; no pwnage found!</h2>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<p class="text-center text-white" id="disclaimerContent4">This password wasn't found in any of the Pwned Passwords loaded into Have I Been Pwned. That doesn't necessarily mean it's a good password, merely that it's not indexed on this site.</p>
+							</div>
+						</div>
+						<div id="pwnedContent_passwords" class="container"></div>
+					</div>
+				</div>
+			</div>
+			<div class="search-results-container hide" id="domains_serach_results_container">
+				<div id="invalidDomains" class="pwnedSearchResult panel-collapse  collapse ">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<h2 class="text-danger">Oh No!! &mdash; You're credentials have been compromised!</h2>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+								<h3 class="text-white text-left" id="disclaimerHeading3">Breaches you were compromised in</h3>
+								<p class="text-left text-white" id="disclaimerContent3">A "breach" is an incident where a site's data has been illegally accessed by hackers and then realased publicly. Review the types of data that were compromised (email address, passwords, credit cards etc.) and take appropriate action, such as changing passwords.</p>
+							</div>
+						</div>
+						<div id="pwnedContent_domains" class="container"></div>
+					</div>
+				</div>
+				<div id="noPwnage_domains" class="pwnedSearchResult panel-collapse  collapse">
+					<div class="container">
+						<div class="row pwnResultBanner">
+							<div class="pwnTitle">
+								<h2 style="color: red;">Good news &mdash; no compromise found!</h2>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -424,6 +500,9 @@
 			$(window).load(function() {
 				$('.main-nav li a, .servicelink').bind('click', function(event) {
 					var $anchor = $(this);
+					if ($($anchor.attr('href') == "javascript:void(0)") ) {
+						return;
+					}
 					$('html, body').stop().animate({
 						scrollTop: $($anchor.attr('href')).offset().top - 102
 					}, 1500, 'easeInOutExpo');

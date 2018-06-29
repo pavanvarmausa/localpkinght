@@ -983,3 +983,34 @@ a.link.animated.fadeInUp.delay-1s.servicelink:hover {
     border: 2px solid #ff7826;
     color: #ff7826;
 }
+
+#header_nav {
+	position: absolute;
+	top: 0;
+	width: 100%;
+} 
+
+#login_btn {
+	position: absolute;
+    right: 20px;
+    top: 5px;
+}
+
+.search-results-container.hide,
+#searchForm .form-control.hide {
+	display: none;
+}
+
+.search-results-container.show,
+#searchForm .form-control.show {
+	display: block;
+}
+
+.main-nav li a.selected-link {
+	color: #ff7826;
+}
+
+#searchContainer .form-control {
+	border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
