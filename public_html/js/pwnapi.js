@@ -5,13 +5,14 @@ function init() {
 function registerEventHandlers() {
   $(document)
       .on("click", "#searchPwnage", handleSearchFormSubmit)
-      .on("submit", "#searchForm", handleDefaultFormBehavior)
+      .on("keypress", "#searchForm input.active", handleFormInputKeyPress)
       .on("click", "#header_nav .main-nav a", handleMenuItemsClick);
 }
 
-function handleDefaultFormBehavior(e) {
-  e.preventDefault();
-  handleSearchFormSubmit();
+function handleFormInputKeyPress(event) {
+  if(event.key == "Enter") {
+    handleSearchFormSubmit();
+  }
 }
 
 function handleSearchFormSubmit(e) {
@@ -98,17 +99,17 @@ function handleMenuItemsClick(e) {
   var $el = $(this);
   var eleType = $el.attr("data-type");
 
-  $(".search-results-container, #searchContainer .form-control").removeClass("show").addClass("hide");
+  $(".search-results-container, #searchContainer .form-control").removeClass("show active").addClass("hide");
   $("#header_nav a").removeClass("selected-link");
 
   $el.addClass("selected-link");
 
   if ( eleType == "domains") {
-    $("#domains_serach_results_container, #searchContainer #domains-search").removeClass("hide").addClass("show");
+    $("#domains_serach_results_container, #searchContainer #domains-search").removeClass("hide").addClass("show active");
   } else if ( eleType == "passwords" ) {
-    $("#passwords_serach_results_container, #searchContainer #password-search").removeClass("hide").addClass("show");
+    $("#passwords_serach_results_container, #searchContainer #password-search").removeClass("hide").addClass("show active");
   } else {
-    $("#emails_serach_results_container, #searchContainer #email-search").removeClass("hide").addClass("show");
+    $("#emails_serach_results_container, #searchContainer #email-search").removeClass("hide").addClass("show active");
   }
 }
 
