@@ -98,7 +98,7 @@ p{
 .header{
 	text-align:center;
 	background:url(../img/pw_maze_black_2X.png) left top repeat;
-	padding:280px 0;
+	/*padding:0 0 180px 0;*/
 }
 .logo{
 	width:130px;
@@ -113,10 +113,10 @@ p{
 	color:#fff;
 }
 
-.we-create{
+/*.we-create{
 	padding:0;
 	margin:35px 0 55px;
-}
+}*/
 .wp-pic{
 	margin-bottom:20px;
 }
@@ -1013,4 +1013,14 @@ a.link.animated.fadeInUp.delay-1s.servicelink:hover {
 #searchContainer .form-control {
 	border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
+}
+
+.customContainer {
+    padding: 0;
+    margin: 25px 25px;
+}
+
+.we-create {
+    padding: 0;
+     margin: 35px 0 55px;
 }

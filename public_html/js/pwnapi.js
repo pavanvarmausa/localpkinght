@@ -6,7 +6,7 @@ function registerEventHandlers() {
   $(document)
       .on("click", "#searchPwnage", handleSearchFormSubmit)
       .on("keypress", "#searchForm input.active", handleFormInputKeyPress)
-      .on("click", "#header_nav .main-nav a", handleMenuItemsClick);
+      .on("click", "#test .main-nav a", handleMenuItemsClick);
 }
 
 function handleFormInputKeyPress(event) {
@@ -18,7 +18,7 @@ function handleFormInputKeyPress(event) {
 function handleSearchFormSubmit(e) {
   
   var $loadingElement = $("#loading");
-  var selectedMenuItem = $("#header_nav a.selected-link").attr("data-type");
+  var selectedMenuItem = $("#test a.selected-link").attr("data-type");
   var searchText = "";
 
   if ( selectedMenuItem == "domains") {
@@ -95,22 +95,27 @@ function validateEmailAddress($loadingElement, searchText) {
 }
 
 function handleMenuItemsClick(e) {
-  e.preventDefault();
+  
   var $el = $(this);
   var eleType = $el.attr("data-type");
 
-  $(".search-results-container, #searchContainer .form-control").removeClass("show active").addClass("hide");
-  $("#header_nav a").removeClass("selected-link");
+  if(eleType) {
+    e.preventDefault();
+    $(".search-results-container, #searchContainer .form-control").removeClass("show active").addClass("hide");
+      $("#test a").removeClass("selected-link");
 
-  $el.addClass("selected-link");
+      $el.addClass("selected-link");
 
-  if ( eleType == "domains") {
-    $("#domains_serach_results_container, #searchContainer #domains-search").removeClass("hide").addClass("show active");
-  } else if ( eleType == "passwords" ) {
-    $("#passwords_serach_results_container, #searchContainer #password-search").removeClass("hide").addClass("show active");
+      if ( eleType == "domains") {
+        $("#domains_serach_results_container, #searchContainer #domains-search").removeClass("hide").addClass("show active");
+      } else if ( eleType == "passwords" ) {
+        $("#passwords_serach_results_container, #searchContainer #password-search").removeClass("hide").addClass("show active");
+      } else {
+        $("#emails_serach_results_container, #searchContainer #email-search").removeClass("hide").addClass("show active");
+      }
   } else {
-    $("#emails_serach_results_container, #searchContainer #email-search").removeClass("hide").addClass("show active");
-  }
+    return;
+  } 
 }
 
 function renderPwnedContent(data) {
